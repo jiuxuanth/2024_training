@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SysInfoCaptureRepository extends JpaRepository<SysInfoCapture, Long> {
 //    List<SysInfoCapture> findByEmail(String email);
+
+
 }

@@ -21,10 +21,10 @@ public class SysInfoCapture {
     private long timestamp;
 
     @Column(name = "step")
-    private String step;
+    private long step;
 
     @Column(name="value")
-    private String value;
+    private double value;
 
     @Column(name="tags")
     private String tags;
@@ -61,19 +61,19 @@ public class SysInfoCapture {
         this.timestamp = timestamp;
     }
 
-    public String getStep() {
+    public long getStep() {
         return step;
     }
 
-    public void setStep(String step) {
+    public void setStep(long step) {
         this.step = step;
     }
 
-    public String getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

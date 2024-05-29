@@ -5,23 +5,30 @@ import com.jiuth.sysmonitorserver.dao.enity.SysInfoCapture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SysInfoCaptureServiceImpl implements SysInfoCaptureService {
     @Autowired
     private SysInfoCaptureRepository sysInfoCaptureRepository;
 
-    @Override
-    public Long addNewSysInfoCapture(SysInfoCapture sysInfoCapture) {
-//        List<Student> studentList=studentRepository.findByEmail(studentDTO.getEmail());
-//        if(!CollectionUtils.isEmpty(studentList)){
-//            throw new IllegalStateException("email:" + studentDTO.getEmail() + " has been taken");
-//        }
-//        Student student=studentRepository.save(StudentConverter.convertStudentDTOToStudent(studentDTO));
-//        return student.getId();
-        System.out.println(sysInfoCapture.toString());
-//        sysInfoCapture.setTags("");
-        SysInfoCapture sysInfoCaptureResult = sysInfoCaptureRepository.save(sysInfoCapture);
-        return sysInfoCaptureResult.getId();
-//        return 0L;
+    public List<SysInfoCapture> findAll() {
+        return sysInfoCaptureRepository.findAll();
+    }
+
+    public SysInfoCapture save(SysInfoCapture sysInfoCapture) {
+        return sysInfoCaptureRepository.save(sysInfoCapture);
+    }
+
+    public List<SysInfoCapture> saveAll(List<SysInfoCapture> sysInfoCaptures) {
+        return sysInfoCaptureRepository.saveAll(sysInfoCaptures);
+    }
+
+    public void deleteById(Long id) {
+        sysInfoCaptureRepository.deleteById(id);
+    }
+
+    public SysInfoCapture findById(Long id) {
+        return sysInfoCaptureRepository.findById(id).orElse(null);
     }
 }

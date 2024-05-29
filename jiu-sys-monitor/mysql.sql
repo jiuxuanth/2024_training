@@ -24,12 +24,3 @@ CREATE TABLE `sys_info_capture` (
                                   `tags` json
 );
 
-mysql> CREATE TABLE "sys_info_capture" (
-    ->                            `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
-    ->                            `metric` VARCHAR(255) NOT NULL,
-    ->                            `endpoint` VARCHAR(255) NOT NULL,
-    ->                            `timestamp` BIGINT NOT NULL,
-    ->                            `step` BIGINT NOT NULL,
-    ->                            `value` DOUBLE NOT NULL,
-    ->                            `tags` json
-    -> );
