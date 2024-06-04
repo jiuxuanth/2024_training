@@ -1,6 +1,26 @@
 package com.jiuth.sysmonitorcapture;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jiuth.sysmonitorcapture.util.OSVersionUtil;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.net.InetAddress;
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -13,27 +33,43 @@ import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 @Component
 public class MetricCollector {
 
-    private static final String SERVER_URL = "http://127.0.0.1:8080/api/metric/upload";
-    private static final String CPU_STAT_FILE_PATH = "/proc/stat";
-    private static final String MEMINFO_FILE_PATH = "/proc/meminfo";
-    private static final String STAT_FILE_HEADER = "cpu  ";
-    private static final long INTERVAL = 60000L; // 60 seconds
+    @Value("${server.url}")
+    private String serverUrl;
+
+    @Value("${interval}")
+    private long interval;
+
+    @Value("${cpu.stat.file.path}")
+    private String cpuStatFilePath;
+
+    @Value("${meminfo.file.path}")
+    private String meminfoFilePath;
 
     private final RestTemplate restTemplate;
     private long previousIdleTime = 0, previousTotalTime = 0;
     private final NumberFormat percentFormatter;
+    private final String STAT_FILE_HEADER = "cpu  ";
 
-    @Autowired
+    private static String endpoint= System.getProperty("user.name", "UnknownUser")+"@"+OSVersionUtil.getLinuxDistribution();;
+
     public MetricCollector(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         this.percentFormatter = NumberFormat.getPercentInstance();
         percentFormatter.setMaximumFractionDigits(2);
     }
 
-    @Scheduled(fixedRate = INTERVAL)
+//    @PostConstruct
+//    public void init() {
+//        // 初始化完成后执行任务
+//        captureMetrics();
+//    }
+
+    @Scheduled(fixedRateString = "${interval}")
     public void captureMetrics() {
         double cpuUtilization = getCpuUtilization();
         double memUtilization = getMemUtilization();
@@ -49,12 +85,22 @@ public class MetricCollector {
         // 准备指标数组
         Map<String, Object>[] metricsArray = new Map[]{cpuMetric, memMetric};
 
-        // 发送指标到服务器
-        restTemplate.postForObject(SERVER_URL, metricsArray, String.class);
+        // 打印发送的 JSON 数据
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(metricsArray);
+            System.out.println("Sending JSON: " + json);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        // 发送指标到服务器，并打印返回的 JSON 数据
+        String response = restTemplate.postForObject(serverUrl, metricsArray, String.class);
+        System.out.println("Server Response JSON: " + response);
     }
 
     private double getCpuUtilization() {
-        try (RandomAccessFile statFile = new RandomAccessFile(CPU_STAT_FILE_PATH, "r")) {
+        try (RandomAccessFile statFile = new RandomAccessFile(cpuStatFilePath, "r")) {
             String[] values = statFile.readLine().substring(STAT_FILE_HEADER.length()).split("\\s+");
 
             long idleTime = Long.parseLong(values[3]);
@@ -78,7 +124,7 @@ public class MetricCollector {
     }
 
     private double getMemUtilization() {
-        try (BufferedReader meminfoReader = new BufferedReader(new FileReader(MEMINFO_FILE_PATH))) {
+        try (BufferedReader meminfoReader = new BufferedReader(new FileReader(meminfoFilePath))) {
             String line;
             long totalMemory = 0;
             long availableMemory = 0;
@@ -113,10 +159,17 @@ public class MetricCollector {
     private Map<String, Object> createMetric(String metricName, double value, long timestamp) {
         Map<String, Object> metric = new HashMap<>();
         metric.put("metric", metricName);
-        metric.put("endpoint", "my-computer");
+        metric.put("endpoint", endpoint);
         metric.put("timestamp", timestamp);
         metric.put("step", 60);
         metric.put("value", value);
         return metric;
     }
+
+//    private String getEndpoint() {
+//        String username = System.getProperty("user.name", "UnknownUser");
+//        String osType = System.getProperty("os.name", "UnknownOS");
+//
+//        return username + "@" + osType;
+//    }
 }
