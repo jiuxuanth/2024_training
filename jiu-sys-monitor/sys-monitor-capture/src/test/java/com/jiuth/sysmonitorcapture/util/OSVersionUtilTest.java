@@ -6,10 +6,8 @@ public class OSVersionUtilTest {
 
     @Test
     public void OSVersionUtilTest() {
-        String distribution = OSVersionUtil.getLinuxDistribution();
-        String version = OSVersionUtil.getLinuxVersion();
+        String distribution = OSVersionUtil.getSystemVersion();
+        System.out.println("System Distribution:"+distribution);
 
-        System.out.println("Linux Distribution: " + distribution);
-        System.out.println("Linux Version: " + version);
     }
 }

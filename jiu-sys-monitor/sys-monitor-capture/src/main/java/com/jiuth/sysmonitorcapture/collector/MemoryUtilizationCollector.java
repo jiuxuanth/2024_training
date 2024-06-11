@@ -1,6 +1,9 @@
 package com.jiuth.sysmonitorcapture.collector;
 
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +11,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+
 @Component
+@Slf4j
 public class MemoryUtilizationCollector {
 
     @Value("${meminfo.file.path}")
@@ -32,12 +37,12 @@ public class MemoryUtilizationCollector {
             double memoryUsage = (double) usedMemory / totalMemory * 100;
 
             // 输出详细的内存信息
-            System.out.println("Total Memory: " + totalMemory + " KB");
-            System.out.println("Used Memory: " + usedMemory + " KB");
+            log.info("Total Memory: {} KB", totalMemory);
+            log.info("Used Memory: {} KB", usedMemory);
 
             return memoryUsage;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("读取内存信息文件出错: {}", e.getMessage());
             return 0;
         }
     }

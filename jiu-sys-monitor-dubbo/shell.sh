@@ -1,0 +1,1 @@
+docker run --name zookeeper -d --restart=always -p 2181:2181 -v /home/jiuth/1-Code/ZookeeperData:/data -v /home/jiuth/1-Code/ZookeeperLogs:/datalog zookeeper

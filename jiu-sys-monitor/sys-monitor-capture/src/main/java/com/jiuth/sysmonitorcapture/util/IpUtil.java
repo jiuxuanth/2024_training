@@ -26,4 +26,10 @@ public class IpUtil {
         }
         return "Unknown";
     }
+
+    public static void main(String[] args) {
+        String ipAddress = IpUtil.getLocalIpAddress();
+        System.out.println("Local IP Address: " + ipAddress);
+
+    }
 }
