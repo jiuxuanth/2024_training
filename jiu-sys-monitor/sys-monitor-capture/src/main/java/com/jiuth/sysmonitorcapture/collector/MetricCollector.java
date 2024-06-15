@@ -6,14 +6,12 @@ import com.jiuth.sysmonitorcapture.util.IpUtil;
 import com.jiuth.sysmonitorcapture.util.OSVersionUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import javax.lang.model.SourceVersion;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +57,6 @@ public class MetricCollector {
         Map<String, Object> cpuMetric = createMetric("cpu.used.percent", cpuUtilization, timestamp);
         Map<String, Object> memMetric = createMetric("mem.used.percent", memUtilization, timestamp);
 
-        // 打印详细的 CPU 和内存信息
         // 打印详细的 CPU 和内存信息
         log.info("CPU 使用率: {}", cpuUtilization);
         log.info("内存使用率: {}", memUtilization);
