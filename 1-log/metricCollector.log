@@ -1,0 +1,7 @@
+2024-06-12 21:36:34.992 [main] INFO  c.j.s.SysMonitorCaptureApplication - Starting SysMonitorCaptureApplication using Java 21.0.3 with PID 193971 (/home/jiuth/1-Code/2024_training/jiu-sys-monitor/sys-monitor-capture/target/classes started by jiuth in /home/jiuth/1-Code/2024_training/jiu-sys-monitor)
+2024-06-12 21:36:34.994 [main] INFO  c.j.s.SysMonitorCaptureApplication - No active profile set, falling back to 1 default profile: "default"
+2024-06-12 21:36:35.496 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 0.755 seconds (process running for 1.079)
+2024-06-12 21:36:35.498 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 3.4313047487924075
+2024-06-12 21:36:35.499 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 79.47800115194832
+2024-06-12 21:36:35.508 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":3.4313047487924075,"timestamp":1718199395},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":79.47800115194832,"timestamp":1718199395}]
+2024-06-12 21:36:35.522 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: I/O error on POST request for "http://127.0.0.1:8080/api/metric/upload": 拒绝连接
