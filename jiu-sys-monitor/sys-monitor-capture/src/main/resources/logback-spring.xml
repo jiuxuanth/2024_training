@@ -22,7 +22,7 @@
             <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
                 <expression><![CDATA[
                     !message.contains("Starting SysMonitorCaptureApplication using Java") &&
-                    !message.contains("The following 1 profile is active: \"dev\"")
+                    !message.contains("The following 1 profile is active: \"dev\"") 
                 ]]></expression>
             </evaluator>
             <onMismatch>DENY</onMismatch>
@@ -38,7 +38,7 @@
         <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
             <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
                 <expression><![CDATA[
-                    !message.contains("Starting SysMonitorCaptureApplication using Java") &&
+ !message.contains("Starting SysMonitorCaptureApplication using Java") &&
                     !message.contains("The following 1 profile is active: \"dev\"")
                 ]]></expression>
             </evaluator>
@@ -55,7 +55,7 @@
         <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
             <evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
                 <expression><![CDATA[
-                    !message.contains("Starting SysMonitorCaptureApplication using Java") &&
+ !message.contains("Starting SysMonitorCaptureApplication using Java") &&
                     !message.contains("The following 1 profile is active: \"dev\"")
                 ]]></expression>
             </evaluator>

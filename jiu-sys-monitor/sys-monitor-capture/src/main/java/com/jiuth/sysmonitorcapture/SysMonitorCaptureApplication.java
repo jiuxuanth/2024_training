@@ -1,5 +1,6 @@
 package com.jiuth.sysmonitorcapture;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
+@MapperScan("com.jiuth.sysmonitorcapture.mapper")
 @SpringBootApplication
 @EnableScheduling
 public class SysMonitorCaptureApplication {
