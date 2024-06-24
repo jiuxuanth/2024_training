@@ -3,3 +3,258 @@
 2024-06-17 18:26:03.419 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.00473644260106
 2024-06-17 18:26:03.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.914602279399013,"timestamp":1718619963},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.00473644260106,"timestamp":1718619963}]
 2024-06-17 18:26:03.541 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 18:17:29.129 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.669 seconds (process running for 3.319)
+2024-06-23 18:17:29.139 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 5.9520889269832455
+2024-06-23 18:17:29.140 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 78.52632537343123
+2024-06-23 18:17:29.153 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":5.9520889269832455,"timestamp":1719137849},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":78.52632537343123,"timestamp":1719137849}]
+2024-06-23 18:17:29.209 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok"}
+
+2024-06-23 18:17:30.591 [RMI TCP Connection(2)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-23 21:39:16.339 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.833 seconds (process running for 2.236)
+2024-06-23 21:39:16.347 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 20.768572431634002
+2024-06-23 21:39:16.347 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 77.64747389427671
+2024-06-23 21:39:16.360 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":20.768572431634002,"timestamp":1719149956},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":77.64747389427671,"timestamp":1719149956}]
+2024-06-23 21:39:16.832 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 21:42:53.071 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.508 seconds (process running for 1.893)
+2024-06-23 21:42:53.079 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 19.694148986727534
+2024-06-23 21:42:53.080 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 80.25554735795681
+2024-06-23 21:42:53.092 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":19.694148986727534,"timestamp":1719150173},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":80.25554735795681,"timestamp":1719150173}]
+2024-06-23 21:42:53.115 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-23 21:43:26.434 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.525 seconds (process running for 1.928)
+2024-06-23 21:43:26.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 19.629870368780587
+2024-06-23 21:43:26.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 81.88322429867233
+2024-06-23 21:43:26.458 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":19.629870368780587,"timestamp":1719150206},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":81.88322429867233,"timestamp":1719150206}]
+2024-06-23 21:43:26.760 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"message":"ok","data":null}
+2024-06-23 21:49:23.440 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 2.259 seconds (process running for 3.187)
+2024-06-23 21:49:23.451 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 20.25164406723713
+2024-06-23 21:49:23.451 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.66011716463368
+2024-06-23 21:49:23.465 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":20.25164406723713,"timestamp":1719150563},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.66011716463368,"timestamp":1719150563}]
+2024-06-23 21:49:23.525 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 14.726599682707564
+2024-06-23 21:50:23.448 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.64274881155436
+2024-06-23 21:50:23.450 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":14.726599682707564,"timestamp":1719150623},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.64274881155436,"timestamp":1719150623}]
+2024-06-23 21:50:23.472 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:51:23.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 11.140263642326653
+2024-06-23 21:51:23.441 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 74.67664431542711
+2024-06-23 21:51:23.442 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":11.140263642326653,"timestamp":1719150683},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":74.67664431542711,"timestamp":1719150683}]
+2024-06-23 21:51:23.452 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:55:34.267 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.489 seconds (process running for 2.042)
+2024-06-23 21:55:34.275 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 18.469715777077568
+2024-06-23 21:55:34.275 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.1641457813458
+2024-06-23 21:55:34.287 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":18.469715777077568,"timestamp":1719150934},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.1641457813458,"timestamp":1719150934}]
+2024-06-23 21:55:34.320 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:56:34.269 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.13602271282682
+2024-06-23 21:56:34.269 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.6690156003438
+2024-06-23 21:56:34.271 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.13602271282682,"timestamp":1719150994},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.6690156003438,"timestamp":1719150994}]
+2024-06-23 21:56:34.278 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:57:28.974 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.497 seconds (process running for 1.949)
+2024-06-23 21:57:28.982 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 18.02035920255376
+2024-06-23 21:57:28.982 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.93349949552604
+2024-06-23 21:57:29.000 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":18.02035920255376,"timestamp":1719151048},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.93349949552604,"timestamp":1719151048}]
+2024-06-23 21:57:29.041 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-23 21:58:28.975 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 10.187127810625807
+2024-06-23 21:58:28.975 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 75.97249169560155
+2024-06-23 21:58:28.976 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":10.187127810625807,"timestamp":1719151108},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":75.97249169560155,"timestamp":1719151108}]
+2024-06-23 21:58:28.986 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 服务器响应 JSON: {"code":200,"data":null,"message":"ok"}
+2024-06-24 12:51:18.564 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.858 seconds (process running for 2.534)
+2024-06-24 12:51:18.572 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.45722971734814
+2024-06-24 12:51:18.572 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 70.77791302970924
+2024-06-24 12:51:18.590 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.45722971734814,"timestamp":1719204678},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":70.77791302970924,"timestamp":1719204678}]
+2024-06-24 12:51:18.631 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:51:19.849 [RMI TCP Connection(3)-127.0.0.1] WARN  o.s.b.a.j.DataSourceHealthIndicator - DataSource health check failed
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:342)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105)
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 44 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:104)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:149)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:165)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:88)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:935)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:805)
+	... 57 common frames omitted
+Caused by: java.net.ConnectException: 拒绝连接
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
+	... 60 common frames omitted
+2024-06-24 12:51:43.783 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.99 seconds (process running for 2.451)
+2024-06-24 12:51:43.792 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.983667327002046
+2024-06-24 12:51:43.793 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 76.49090513231597
+2024-06-24 12:51:43.805 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.983667327002046,"timestamp":1719204703},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":76.49090513231597,"timestamp":1719204703}]
+2024-06-24 12:51:43.834 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:52:43.784 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 12.54842513053731
+2024-06-24 12:52:43.784 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 79.5765295014152
+2024-06-24 12:52:43.785 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":12.54842513053731,"timestamp":1719204763},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":79.5765295014152,"timestamp":1719204763}]
+2024-06-24 12:52:43.786 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
+2024-06-24 12:52:56.047 [main] INFO  c.j.s.SysMonitorCaptureApplication - Started SysMonitorCaptureApplication in 1.486 seconds (process running for 1.889)
+2024-06-24 12:52:56.054 [scheduling-1] INFO  c.j.s.collector.MetricCollector - CPU 使用率: 13.057102724426194
+2024-06-24 12:52:56.054 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 内存使用率: 80.14607208598065
+2024-06-24 12:52:56.065 [scheduling-1] INFO  c.j.s.collector.MetricCollector - 发送 JSON: [{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"cpu.used.percent","step":60,"value":13.057102724426194,"timestamp":1719204776},{"endpoint":"jiuth@Ubuntu24.04LTS@127.0.0.1","metric":"mem.used.percent","step":60,"value":80.14607208598065,"timestamp":1719204776}]
+2024-06-24 12:52:56.087 [scheduling-1] ERROR c.j.s.collector.MetricCollector - 发送指标到服务器出错: Cannot invoke "org.springframework.http.client.ClientHttpResponse.getStatusCode()" because "response" is null
